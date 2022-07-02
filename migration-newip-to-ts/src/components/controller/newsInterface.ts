@@ -1,16 +1,16 @@
 export interface ResponceData {
-    status: string,
-    sources: Array<Sources>,
+    status: string
+    sources: Array<ISources>
 }
 
-export interface Sources {
-    id: string,
-    name: string,
-    description: string,
-    url: string,
-    category: string,
-    language: string,
-    country: string,
+export interface ISources {
+    id: string
+    name: string
+    description: string
+    url: string
+    category: string
+    language: string
+    country: string
 }
 
 // category: "general"
@@ -22,23 +22,23 @@ export interface Sources {
 // url: "https://abcnews.go.com"
 
 export interface TopHeadlinesResponce {
-    status: string,
-    totalResults: number,
-    articles: Array<Article>,
+    status: string
+    totalResults: number
+    articles: Array<Article>
 }
 
 export interface Article {
-    author: string,
-    content: string,
-    description: string,
-    publishedAt: string,
-    source: IdName,
-    title: string,
-    url: string,
-    urlToImage: string,
+    author: string
+    content: string
+    description: string
+    publishedAt: string
+    source: IdName
+    title: string
+    url: string
+    urlToImage: string
 }
 
-type IdName = Pick<Sources, 'id' | 'name'>
+type IdName = Pick<ISources, 'id' | 'name'>
 
 // author: "Gunnar Thorenfeldt, Yngvar Gotaas Bonde, Ole Alexander Saue"
 // content: "En bil med Sian-medlemmer ble presset av veien etter at de brant koraner i Oslo. Det er personskader som følge av hendelsen, ifølge Sian-leder Lars Thorsen.\r\nSian-leder Lars Thorsen bekrefter at han … [+1594 chars]"
