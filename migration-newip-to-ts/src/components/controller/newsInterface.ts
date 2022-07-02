@@ -1,9 +1,9 @@
-export interface Responce{
+export interface ResponceData {
     status: string,
     sources: Array<Sources>,
 }
 
-export interface Sources{
+export interface Sources {
     id: string,
     name: string,
     description: string,
@@ -21,17 +21,17 @@ export interface Sources{
 // name: "ABC News"
 // url: "https://abcnews.go.com"
 
-export interface TopHeadlinesResponce{
+export interface TopHeadlinesResponce {
     status: string,
     totalResults: number,
     articles: Array<Article>,
 }
 
-export interface Article{
+export interface Article {
     author: string,
     content: string,
     description: string,
-    puplishedAt: string,
+    publishedAt: string,
     source: IdName,
     title: string,
     url: string,
