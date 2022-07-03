@@ -2,12 +2,13 @@ import { TopHeadlinesResponce } from '../controller/newsInterface';
 import { EverythingResponce } from '../controller/newsInterface';
 
 interface ApiLoader {
+    sources?: string
     apiKey?: string;
 }
 
 interface getRespObj{
     endpoint: string;
-    options: ApiLoader;
+    options?: ApiLoader;
 }
 
 interface LoaderInterface {
