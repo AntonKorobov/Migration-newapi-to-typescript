@@ -1,9 +1,15 @@
-export interface ResponceData {
+export interface TopHeadlinesResponce {
     status: string
-    sources: Array<ISources>
+    sources: Array<NewsSources>
 }
 
-export interface ISources {
+export interface EverythingResponce {
+    status: string
+    totalResults: number
+    articles: Array<Article>
+}
+
+export interface NewsSources {
     id: string
     name: string
     description: string
@@ -11,20 +17,6 @@ export interface ISources {
     category: string
     language: string
     country: string
-}
-
-// category: "general"
-// country: "us"
-// description: "Your trusted source for breaking news, analysis, exclusive interviews, headlines, and videos at ABCNews.com."
-// id: "abc-news"
-// language: "en"
-// name: "ABC News"
-// url: "https://abcnews.go.com"
-
-export interface TopHeadlinesResponce {
-    status: string
-    totalResults: number
-    articles: Array<Article>
 }
 
 export interface Article {
@@ -38,8 +30,21 @@ export interface Article {
     urlToImage: string
 }
 
-type IdName = Pick<ISources, 'id' | 'name'>
+type IdName = Pick<NewsSources, 'id' | 'name'>
 
+
+//data.sources
+//
+// category: "general"
+// country: "us"
+// description: "Your trusted source for breaking news, analysis, exclusive interviews, headlines, and videos at ABCNews.com."
+// id: "abc-news"
+// language: "en"
+// name: "ABC News"
+// url: "https://abcnews.go.com"
+
+//data.articles
+//
 // author: "Gunnar Thorenfeldt, Yngvar Gotaas Bonde, Ole Alexander Saue"
 // content: "En bil med Sian-medlemmer ble presset av veien etter at de brant koraner i Oslo. Det er personskader som følge av hendelsen, ifølge Sian-leder Lars Thorsen.\r\nSian-leder Lars Thorsen bekrefter at han … [+1594 chars]"
 // description: "En bil med Sian-medlemmer ble presset av veien etter at de brant koraner i Oslo. Det er personskader som følge av hendelsen, ifølge Sian-leder Lars Thorsen."
