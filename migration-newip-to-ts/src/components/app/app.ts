@@ -1,14 +1,14 @@
 import AppController from '../controller/controller';
 import { AppView } from '../view/appView';
 
-interface AppInterface{
-    controller: AppController
-    view: AppView
+interface AppInterface {
+    controller: AppController;
+    view: AppView;
 }
 
-class App implements AppInterface{
-    controller: AppController
-    view: AppView
+class App implements AppInterface {
+    controller: AppController;
+    view: AppView;
 
     constructor() {
         this.controller = new AppController();
@@ -17,8 +17,8 @@ class App implements AppInterface{
 
     start() {
         document
-            .querySelector('.sources')!
-            .addEventListener('click', (e) => this.controller.getNews(e, (data) => this.view.drawNews(data)));
+           .querySelector('.sources')
+           ?.addEventListener('click', (e) => this.controller.getNews(e, (data) => this.view.drawNews(data)));
         this.controller.getSources((data) => this.view.drawSources(data));
     }
 }

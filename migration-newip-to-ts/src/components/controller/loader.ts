@@ -21,7 +21,11 @@ interface LoaderInterface {
 
     makeUrl(options: ApiLoader, endpoint: string): string
 
-    load(method: string, endpoint: string,  callback: (data: TopHeadlinesResponce & EverythingResponce) => TopHeadlinesResponce & EverythingResponce, options: ApiLoader): void
+    load(
+        method: string,
+        endpoint: string,
+        callback: (data: TopHeadlinesResponce & EverythingResponce) => TopHeadlinesResponce & EverythingResponce,
+        options: ApiLoader): void
 }
 
 class Loader implements LoaderInterface {
@@ -61,7 +65,11 @@ class Loader implements LoaderInterface {
         return url.slice(0, -1);
     }
 
-    load(method: string, endpoint: string, callback: (data: TopHeadlinesResponce & EverythingResponce) => void, options = {}): void {
+    load(
+        method: string,
+        endpoint: string,
+        callback: (data: TopHeadlinesResponce & EverythingResponce) => void,
+        options = {}): void {
         fetch(this.makeUrl(options, endpoint), { method })
             .then(this.errorHandler)
             .then((res) => res.json())
