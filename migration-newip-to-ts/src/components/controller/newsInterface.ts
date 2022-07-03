@@ -1,12 +1,12 @@
 export interface TopHeadlinesResponce {
-    status: string
-    sources: Array<NewsSources>
+    status?: string
+    sources?: Array<NewsSources>
 }
 
 export interface EverythingResponce {
-    status: string
-    totalResults: number
-    articles: Array<Article>
+    status?: string
+    totalResults?: number
+    articles?: Array<Article>
 }
 
 export interface NewsSources {
@@ -31,7 +31,6 @@ export interface Article {
 }
 
 type IdName = Pick<NewsSources, 'id' | 'name'>
-
 
 //data.sources
 //
