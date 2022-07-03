@@ -2,30 +2,31 @@ import { TopHeadlinesResponce } from '../controller/newsInterface';
 import { EverythingResponce } from '../controller/newsInterface';
 
 interface ApiLoader {
-    sources?: string
+    sources?: string;
     apiKey?: string;
 }
 
-interface getRespObj{
+interface getRespObj {
     endpoint: string;
     options?: ApiLoader;
 }
 
 interface LoaderInterface {
-    baseLink: string
-    options: ApiLoader
+    baseLink: string;
+    options: ApiLoader;
 
-    getResp(getRespObj: getRespObj, callback: () => void): void
+    getResp(getRespObj: getRespObj, callback: () => void): void;
 
-    errorHandler(res: Response): Response
+    errorHandler(res: Response): Response;
 
-    makeUrl(options: ApiLoader, endpoint: string): string
+    makeUrl(options: ApiLoader, endpoint: string): string;
 
     load(
         method: string,
         endpoint: string,
         callback: (data: TopHeadlinesResponce & EverythingResponce) => TopHeadlinesResponce & EverythingResponce,
-        options: ApiLoader): void
+        options: ApiLoader
+    ): void;
 }
 
 class Loader implements LoaderInterface {
@@ -37,7 +38,8 @@ class Loader implements LoaderInterface {
         this.options = options;
     }
 
-    getResp({ endpoint, options = {} }: getRespObj,
+    getResp(
+        { endpoint, options = {} }: getRespObj,
         callback: (data: TopHeadlinesResponce & EverythingResponce) => void = () => {
             console.error('No callback for GET response');
         }
@@ -55,7 +57,7 @@ class Loader implements LoaderInterface {
     }
 
     makeUrl(options: object, endpoint: string): string {
-        const urlOptions: {[index: string]: string} = {...this.options, ...options };
+        const urlOptions: { [index: string]: string } = { ...this.options, ...options };
         let url = `${this.baseLink}${endpoint}?`;
 
         Object.keys(urlOptions).forEach((key: string) => {
@@ -69,7 +71,8 @@ class Loader implements LoaderInterface {
         method: string,
         endpoint: string,
         callback: (data: TopHeadlinesResponce & EverythingResponce) => void,
-        options = {}): void {
+        options = {}
+    ): void {
         fetch(this.makeUrl(options, endpoint), { method })
             .then(this.errorHandler)
             .then((res) => res.json())
