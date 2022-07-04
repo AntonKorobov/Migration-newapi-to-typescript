@@ -12,9 +12,9 @@ export class AppView {
         this.sources = new Sources();
     }
 
-    drawNews(data: TopHeadlinesResponce & EverythingResponce): void {
+    drawNews(data: TopHeadlinesResponce & EverythingResponce, addMoreNews: boolean): void {
         const values = data?.articles ? data?.articles : [];
-        this.news.draw(values);
+        this.news.draw(values, addMoreNews);
     }
 
     drawSources(data: TopHeadlinesResponce & EverythingResponce): void {

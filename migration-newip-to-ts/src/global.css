@@ -13,6 +13,13 @@ header h1 {
     font-weight: 800;
 }
 
+.add-more-button {
+    text-align: center;
+    width: 100px;
+    margin: 20px auto;
+}
+
+
 footer {
     height: 100px;
     display: flex;

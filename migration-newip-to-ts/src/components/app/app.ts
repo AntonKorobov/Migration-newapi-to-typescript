@@ -18,8 +18,18 @@ class App implements AppInterface {
     start() {
         document
             .querySelector('.sources')
-            ?.addEventListener('click', (e) => this.controller.getNews(e, (data) => this.view.drawNews(data)));
+            ?.addEventListener('click', (e) => {
+                console.log(this);
+                this.controller.getNews(e, (data) => this.view.drawNews(data, false))
+            });
         this.controller.getSources((data) => this.view.drawSources(data));
+
+        document
+        .querySelector('.sources_more')
+        ?.addEventListener('click', (e) => {
+            console.log(this);
+            this.controller.getNews(e, (data) => this.view.drawNews(data, true))
+        });
     }
 }
 

@@ -2,7 +2,7 @@ import './news.css';
 import { Article } from '../../controller/newsInterface';
 
 class News {
-    draw(data: Array<Article>): void {
+    draw(data: Array<Article>, addMoreNews: boolean): void {
         const news = data.length >= 10 ? data.filter((_item: Article, idx: number) => idx < 10) : data;
 
         const fragment = document.createDocumentFragment();
@@ -31,8 +31,10 @@ class News {
 
             fragment.append(newsClone);
         });
-
-        (document.querySelector('.news') as HTMLElement).innerHTML = '';
+       
+        if(addMoreNews === false){
+            (document.querySelector('.news') as HTMLElement).innerHTML = '';
+        }
         (document.querySelector('.news') as HTMLElement).appendChild(fragment);
     }
 }
