@@ -14,11 +14,15 @@ header h1 {
 }
 
 .add-more-button {
+    display: none;
     text-align: center;
     width: 100px;
     margin: 20px auto;
 }
 
+.show-element{
+    display: block;
+}
 
 footer {
     height: 100px;

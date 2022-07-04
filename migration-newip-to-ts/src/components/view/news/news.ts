@@ -2,8 +2,13 @@ import './news.css';
 import { Article } from '../../controller/newsInterface';
 
 class News {
+    numberOfnewsOnScreen: number = 0;
+
     draw(data: Array<Article>, addMoreNews: boolean): void {
-        const news = data.length >= 10 ? data.filter((_item: Article, idx: number) => idx < 10) : data;
+        // console.log(this.numberOfnewsOnScreen);
+        // const news = data.length >= 10 ? data.filter((_item: Article, idx: number) => (idx < (10 + this.numberOfnewsOnScreen)))&&(idx < this.numberOfnewsOnScreen) : data;
+        const news = data.length >= 10 ? data.slice(this.numberOfnewsOnScreen, this.numberOfnewsOnScreen + 10) : data;
+        this.numberOfnewsOnScreen += 10;
 
         const fragment = document.createDocumentFragment();
         const newsItemTemp = document.querySelector('#newsItemTemp') as HTMLTemplateElement;

@@ -4,6 +4,8 @@ import { AppView } from '../view/appView';
 interface AppInterface {
     controller: AppController;
     view: AppView;
+
+    start: () => void;
 }
 
 class App implements AppInterface {
@@ -19,15 +21,13 @@ class App implements AppInterface {
         document
             .querySelector('.sources')
             ?.addEventListener('click', (e) => {
-                console.log(this);
                 this.controller.getNews(e, (data) => this.view.drawNews(data, false))
             });
         this.controller.getSources((data) => this.view.drawSources(data));
 
         document
-        .querySelector('.sources_more')
+        .querySelector('.sources_button')
         ?.addEventListener('click', (e) => {
-            console.log(this);
             this.controller.getNews(e, (data) => this.view.drawNews(data, true))
         });
     }
