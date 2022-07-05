@@ -2,7 +2,7 @@ import './news.css';
 import { Article } from '../../controller/newsInterface';
 
 class News {
-    numberOfnewsOnScreen: number = 0;
+    numberOfnewsOnScreen = 0;
 
     draw(data: Array<Article>, addMoreNews: boolean): void {
         // console.log(this.numberOfnewsOnScreen);
@@ -36,8 +36,8 @@ class News {
 
             fragment.append(newsClone);
         });
-       
-        if(addMoreNews === false){
+
+        if (addMoreNews === false) {
             (document.querySelector('.news') as HTMLElement).innerHTML = '';
         }
         (document.querySelector('.news') as HTMLElement).appendChild(fragment);

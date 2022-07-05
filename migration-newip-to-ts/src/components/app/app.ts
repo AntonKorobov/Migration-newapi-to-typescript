@@ -18,17 +18,13 @@ class App implements AppInterface {
     }
 
     start() {
-        document
-            .querySelector('.sources')
-            ?.addEventListener('click', (e) => {
-                this.controller.getNews(e, (data) => this.view.drawNews(data, false))
-            });
+        document.querySelector('.sources')?.addEventListener('click', (e) => {
+            this.controller.getNews(e, (data) => this.view.drawNews(data, false));
+        });
         this.controller.getSources((data) => this.view.drawSources(data));
 
-        document
-        .querySelector('.add-more-sources')
-        ?.addEventListener('click', (e) => {
-            this.controller.getNews(e, (data) => this.view.drawNews(data, true))
+        document.querySelector('.add-more-sources')?.addEventListener('click', (e) => {
+            this.controller.getNews(e, (data) => this.view.drawNews(data, true));
         });
     }
 }
