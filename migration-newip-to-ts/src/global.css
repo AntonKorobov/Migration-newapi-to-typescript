@@ -31,7 +31,12 @@ footer {
     justify-content: center;
 }
 .rss-logo {
-    margin: 10px;
+    width: 300px;
+    height: 300px;
+    margin: 20px;
+    background-image: url('https://rs.school/images/rs_school_js.svg');
+    background-repeat: no-repeat;
+    background-position: center;
 }
 footer .copyright {
     font-size: 14px;
