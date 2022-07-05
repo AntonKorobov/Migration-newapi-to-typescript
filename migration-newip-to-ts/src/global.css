@@ -30,6 +30,9 @@ footer {
     align-items: center;
     justify-content: center;
 }
+.rss-logo {
+    margin: 10px;
+}
 footer .copyright {
     font-size: 14px;
     color: #333;

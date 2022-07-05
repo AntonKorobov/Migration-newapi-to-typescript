@@ -25,7 +25,8 @@ class AppController extends AppLoader {
 
                 if (newsContainer.getAttribute('data-source') !== sourceId) {
                     newsContainer.setAttribute('data-source', sourceId);
-                    document.querySelector('.sources_button')?.removeAttribute('data-source');
+
+                    document.querySelector('.add-more-sources')?.removeAttribute('data-source');
                     super.getResp(
                         {
                             endpoint: 'everything',
@@ -40,8 +41,6 @@ class AppController extends AppLoader {
             }
             target = target.parentNode as HTMLElement;
         }
-
-
     }
 }
 

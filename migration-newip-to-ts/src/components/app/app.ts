@@ -26,7 +26,7 @@ class App implements AppInterface {
         this.controller.getSources((data) => this.view.drawSources(data));
 
         document
-        .querySelector('.sources_button')
+        .querySelector('.add-more-sources')
         ?.addEventListener('click', (e) => {
             this.controller.getNews(e, (data) => this.view.drawNews(data, true))
         });
