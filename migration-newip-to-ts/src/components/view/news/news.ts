@@ -5,8 +5,7 @@ class News {
     numberOfnewsOnScreen = 0;
 
     draw(data: Array<Article>, addMoreNews: boolean): void {
-        // console.log(this.numberOfnewsOnScreen);
-        // const news = data.length >= 10 ? data.filter((_item: Article, idx: number) => (idx < (10 + this.numberOfnewsOnScreen)))&&(idx < this.numberOfnewsOnScreen) : data;
+        
         const news = data.length >= 10 ? data.slice(this.numberOfnewsOnScreen, this.numberOfnewsOnScreen + 10) : data;
         this.numberOfnewsOnScreen += 10;
 
